@@ -1,11 +1,11 @@
 def make_bold(func):
-    def inner(first='Hello', last='World'):
-        return f'<strong>{func(first, last)}</strong>'
+    def inner(*x, **y):
+        return f'<strong>{func(*x, **y)}</strong>'
     return inner
 
 @make_bold
-def get_html_greeting(word1, word2):
-    return f'{word1}, {word2}!'
+def get_html_greeting():
+    return 'Hello, World!'
 
 @make_bold
 def get_custom_html_greeting(first, last):
