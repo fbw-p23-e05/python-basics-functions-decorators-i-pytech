@@ -1,12 +1,10 @@
 def make_bold(funk):
     def inner():
-        print("<strong>", end="")
-        funk()
-        print("<\strong>")
+        return f"<strong>{funk()}<\strong>"
     return inner
 
 @make_bold
 def get_html_greeting():
-    print("Hello World!", end="")
+    return "Hello World!"
 
-get_html_greeting()
+print(get_html_greeting())
