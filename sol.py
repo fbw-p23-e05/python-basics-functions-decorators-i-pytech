@@ -44,24 +44,24 @@ print(get_html_greeting())   """
 
 ### Task 3
 
-
+""" 
 def make_bold(func):
 
     def inner_bold(*arg,**kwargs):
-     return f"<strong>{func(*arg,**kwargs)} </strong>"
+     return f"<strong>{func(*arg,**kwargs)}</strong>"
     return inner_bold
 
 
 def make_italics(func):
 
     def inner_ital(*arg,**kwargs):
-     return f"<em>{func(*arg,**kwargs)} </em>"
+     return f"<em>{func(*arg,**kwargs)}</em>"
     return inner_ital
 
 def make_paragraph(func):
 
     def inner_para(*arg,**kwargs):
-     return f"<p>{func(*arg,**kwargs)} </p>"
+     return f"<p>{func(*arg,**kwargs)}</p>"
     return inner_para
 
 @make_bold
@@ -72,6 +72,36 @@ def get_full_name(first_name,last_name):
 
 @make_paragraph
 @make_italics
+def get_custom_html_greeting(first,last):
+
+    return f"Hello, {get_full_name(first,last)} !"
+
+
+print(get_custom_html_greeting("James", "Brown"))
+print(get_custom_html_greeting(first="James", last="Brown")) """
+
+
+### Task 4
+
+def wrap_with(tag):
+
+    def outer_fun(func):
+
+        def inner_bold(*arg,**kwargs):
+
+            return f"<{tag}>{func(*arg,**kwargs)}</{tag}>"
+        
+        return inner_bold
+    
+    return outer_fun 
+
+@wrap_with(tag="strong")
+def get_full_name(first_name,last_name):
+   
+   return f"{first_name} {last_name}"
+
+@wrap_with(tag="p")
+@wrap_with(tag="em")
 def get_custom_html_greeting(first,last):
 
     return f"Hello, {get_full_name(first,last)} !"
