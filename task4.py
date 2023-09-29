@@ -10,8 +10,8 @@ def wrap_with(tag):
 def get_full_name(first, last):
     return f"{first} {last}"
 
-@wrap_with(tag="em")
 @wrap_with(tag="p")
+@wrap_with(tag="em")
 def get_custom_html_greeting(first, last):
     full_name = get_full_name(first, last)
     return f"Hello, {full_name}!"
