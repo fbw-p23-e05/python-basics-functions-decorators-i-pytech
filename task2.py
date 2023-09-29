@@ -1,8 +1,8 @@
 def make_bold(func):
-    def adapt(*args, **kwargs):
+    def wrap(*args, **kwargs):
         result = func(*args, **kwargs)
         return f"<strong>{result}</strong>"
-    return adapt
+    return wrap
 
 @make_bold
 def get_html_greeting():
