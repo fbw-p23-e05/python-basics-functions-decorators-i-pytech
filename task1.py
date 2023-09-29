@@ -1,14 +1,10 @@
 def make_bold(func):
-    def wrapper():
+    def wrap():
         return f"<strong>{func()}</strong>"
-    return wrapper
+    return wrap
 
 @make_bold
 def get_html_greeting():
     return "Hello, World!"
 
 print(get_html_greeting())
-
-
-
-
